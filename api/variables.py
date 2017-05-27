@@ -75,5 +75,10 @@ SMOKE = 'SMOKE'
 SOFT_BODY = 'SOFT_BODY'
 SURFACE = 'SURFACE'
 
+# Fill type
+NOTHING = 'NOTHING'
+NGON = 'NGON'
+TRIFAN = 'TRIFAN'
+
 # Location, rotation
 ORIGIN = (0, 0, 0)

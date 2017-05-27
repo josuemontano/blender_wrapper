@@ -1,10 +1,15 @@
 import bpy
 
 from .base import BlenderObject
+from .variables import LAYER_1, NOTHING
 
 
 class Mesh(BlenderObject):
     """Base mesh"""
+    def __init__(self, location, rotation, view_align=False, layers=LAYER_1, radius=1.0):
+        super(Mesh, self).__init__(location, rotation, view_align, layers)
+        self.radius = radius
+
     def add_modifier(self, type):
         """Add a modifier to the active object
 
@@ -62,3 +67,33 @@ class Mesh(BlenderObject):
                      - SURFACE Surface.
         """
         bpy.ops.object.modifier_add(type)
+
+
+class Cone(Mesh):
+    def __init__(self, location, rotation, vertices=32, radius1=1.0, radius2=0.0, depth=2.0, end_fill_type=NOTHING, view_align=False, layers=LAYER_1):
+        super(Cone, self).__init__(location, rotation, view_align, layers, 0.0)
+
+        self.vertices = vertices
+        self.radius1 = radius1
+        self.radius2 = radius2
+        self.depth = depth
+        self.end_fill_type = end_fill_type
+
+    def add_to_scene(self):
+        bpy.ops.mesh.primitive_cone_add(vertices=self.vertices,
+                                        radius1=self.radius1,
+                                        radius2=self.radius2,
+                                        depth=self.depth,
+                                        end_fill_type=self.end_fill_type,
+                                        location=self.location,
+                                        rotation=self.rotation,
+                                        view_align=self.view_align,
+                                        layers=self.layers)
+
+class Plane(Mesh):
+    def add_to_scene(self):
+        bpy.ops.mesh.primitive_plane_add(location=self.location,
+                                         rotation=self.rotation,
+                                         view_align=self.view_align,
+                                         layers=self.layers,
+                                         radius=self.radius)
