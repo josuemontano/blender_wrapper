@@ -1,5 +1,14 @@
 Python wrapper for blender 3D software API.
 
+## Installation
+
+Clone this repo and make it available to blender's python interpreter. You can do it by creating a symbolic link, e.g.:
+
+```sh
+git clone git@github.com:josuemontano/blender_wrapper.git
+ln -s $PWD/blender_wrapper /Applications/blender.app/Contents/Resources/2.78/python/lib/python3.5/site-packages
+```
+
 ## Usage
 
 ```python
