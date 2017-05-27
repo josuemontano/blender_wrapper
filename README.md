@@ -28,6 +28,11 @@ def main():
     lamp = SunLamp(10, (0, 0, 3), ORIGIN)
     lamp.add_to_scene()
 
+    monkey = Monkey((0, 0, 1.25), (10, 0, 45), radius=1.25)
+    monkey.add_to_scene()
+    monkey.add_modifier(SUBSURF)
+    monkey.shade_smooth()
+
     scene.render()
 
 
