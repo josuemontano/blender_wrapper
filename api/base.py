@@ -32,6 +32,14 @@ class BlenderObject:
         """
         bpy.ops.object.rotation_clear(clear_delta=clear_delta)
 
+    def clear_scale(self, clear_delta=False):
+        """
+        Clear the object’s scale
+
+        :param clear_delta: Clear delta scale in addition to clearing the normal scale transform
+        """
+        bpy.ops.object.scale_clear(clear_delta=clear_delta)
+
     def set_mode(self, mode, toggle=False):
         """Sets the object interaction mode
 
