@@ -91,17 +91,36 @@ class Cone(Mesh):
                                         layers=self.layers)
 class Cube(Mesh):
     def add_to_scene(self):
-        bpy.ops.mesh.primitive_cube_add(location=self.location,
+        bpy.ops.mesh.primitive_cube_add(radius=self.radius,
+                                        location=self.location,
                                         rotation=self.rotation,
                                         view_align=self.view_align,
-                                        layers=self.layers,
-                                        radius=self.radius)
+                                        layers=self.layers)
+
+
+class Cylinder(Mesh):
+    def __init__(self, location, rotation, vertices=32, radius=1.0, depth=2.0, end_fill_type=NOTHING, view_align=False, layers=LAYER_1):
+        super(Cylinder, self).__init__(location, rotation, view_align, layers, radius)
+
+        self.vertices = vertices
+        self.depth = depth
+        self.end_fill_type = end_fill_type
+
+    def add_to_scene(self):
+        bpy.ops.mesh.primitive_cylinder_add(radius=self.radius,
+                                            vertices=self.vertices,
+                                            depth=self.depth,
+                                            end_fill_type=self.end_fill_type,
+                                            location=self.location,
+                                            rotation=self.rotation,
+                                            view_align=self.view_align,
+                                            layers=self.layers)
 
 
 class Plane(Mesh):
     def add_to_scene(self):
-        bpy.ops.mesh.primitive_plane_add(location=self.location,
+        bpy.ops.mesh.primitive_plane_add(radius=self.radius,
+                                         location=self.location,
                                          rotation=self.rotation,
                                          view_align=self.view_align,
-                                         layers=self.layers,
-                                         radius=self.radius)
+                                         layers=self.layers)
