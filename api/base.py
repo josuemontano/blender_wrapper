@@ -18,7 +18,15 @@ class BlenderObject:
 
         :param clear_delta: Clear delta location in addition to clearing the normal location transform
         """
-        bpy.ops.object.location_clear(clear_delta)
+        bpy.ops.object.location_clear(clear_delta=clear_delta)
+
+    def clear_rotation(self, clear_delta=False):
+        """
+        Clear the object’s rotation
+
+        :param clear_delta: Clear delta rotation in addition to clearing the normal rotation transform
+        """
+        bpy.ops.object.rotation_clear(clear_delta=clear_delta)
 
     def set_mode(self, mode, toggle=False):
         """Sets the object interaction mode
@@ -35,4 +43,4 @@ class BlenderObject:
                      - GPENCIL_EDIT Edit Strokes, Edit Grease Pencil Strokes.
         :param toggle: Toggle
         """
-        bpy.ops.object.mode_set(mode, toggle)
+        bpy.ops.object.mode_set(mode=mode, toggle=toggle)
