@@ -1,10 +1,10 @@
 import bpy
-from abc import ABCMeta
 
+from .base import BlenderObject
 from .variables import ORIGIN, LAYER_1
 
 
-class Lamp(metaclass=ABCMeta):
+class Lamp(BlenderObject):
     """Base lamp"""
     def __init__(self, type_, radius, location, rotation, view_align, layers, cast_shadow):
         """
