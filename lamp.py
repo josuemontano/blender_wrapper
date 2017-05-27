@@ -1,7 +1,7 @@
 import bpy
 
 from .base import BlenderObject
-from .variables import ORIGIN, LAYER_1
+from .variables import LAYER_1, ORIGIN, POINT, SUN
 
 
 class Lamp(BlenderObject):
@@ -42,11 +42,11 @@ class Lamp(BlenderObject):
 
 class PointLamp(Lamp):
     """Point lamp"""
-    def __init__(self, radius, location=ORIGIN, rotation=ORIGIN, view_align=False, layers=LAYER_1, cast_shadow=True):
-        super(PointLamp, self).__init__('POINT', radius, location, rotation, view_align, layers, cast_shadow)
+    def __init__(self, radius, location, rotation, view_align=False, layers=LAYER_1, cast_shadow=True):
+        super(PointLamp, self).__init__(POINT, radius, location, rotation, view_align, layers, cast_shadow)
 
 
 class SunLamp(Lamp):
     """Point lamp"""
-    def __init__(self, radius, location=ORIGIN, rotation=ORIGIN, view_align=False, layers=LAYER_1, cast_shadow=True):
-        super(SunLamp, self).__init__('SUN', radius, location, rotation, view_align, layers, cast_shadow)
+    def __init__(self, radius, location, rotation, view_align=False, layers=LAYER_1, cast_shadow=True):
+        super(SunLamp, self).__init__(SUN, radius, location, rotation, view_align, layers, cast_shadow)
