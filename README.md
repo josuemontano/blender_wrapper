@@ -12,10 +12,10 @@ ln -s $PWD/blender_wrapper /Applications/blender.app/Contents/Resources/2.78/pyt
 ## Usage
 
 ```python
-from blender_wrapper.scene import Scene
-from blender_wrapper.camera import Camera
-from blender_wrapper.lamp import SunLamp
-from blender_wrapper.variables import ORIGIN
+from blender_wrapper.api import Scene
+from blender_wrapper.api import Camera
+from blender_wrapper.api import SunLamp
+from blender_wrapper.api import ORIGIN
 
 
 def main():
