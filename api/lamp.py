@@ -1,7 +1,7 @@
 import bpy
 
 from .base import BlenderObject
-from .variables import LAYER_1, ORIGIN, POINT, SUN
+from .variables import LAYER_1, POINT, SUN
 
 
 class Lamp(BlenderObject):
@@ -21,12 +21,10 @@ class Lamp(BlenderObject):
         :param layers: Layer
         :param cast_shadow: Lamp casts shadow
         """
+        super(Lamp, self).__init__(location, rotation, view_align, layers)
+
         self.type_ = type_
         self.radius = radius
-        self.location = location
-        self.rotation = rotation
-        self.view_align = view_align
-        self.layers = layers
         self.cast_shadow = cast_shadow
 
     def add_to_scene(self):

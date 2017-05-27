@@ -1,5 +1,14 @@
+from .variables import LAYER_1
+
+
 class BlenderObject:
     """Base blender object"""
+    def __init__(self, location, rotation, view_align=False, layers=LAYER_1):
+        self.location = location
+        self.rotation = rotation
+        self.view_align = view_align
+        self.layers = layers
+
     def add_to_scene(self):
         pass
 
