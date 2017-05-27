@@ -9,11 +9,11 @@ class Lamp(BlenderObject):
     def __init__(self, type_, radius, location, rotation, view_align, layers, cast_shadow):
         """
         :param type_: Type of lamp, must be one of the following:
-                      - POINT Point, Omnidirectional point light source.
-                      - SUN Sun, Constant direction parallel ray light source.
-                      - SPOT Spot, Directional cone light source.
-                      - HEMI Hemi, 180 degree constant light source.
-                      - AREA Area, Directional area light source.
+                      - POINT Point. Omnidirectional point light source.
+                      - SUN Sun. Constant direction parallel ray light source.
+                      - SPOT Spot. Directional cone light source.
+                      - HEMI Hemi. 180 degree constant light source.
+                      - AREA Area. Directional area light source.
         :param radius: Radius
         :param location: Location for the newly added object
         :param rotation: Rotation for the newly added object
