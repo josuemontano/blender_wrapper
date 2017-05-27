@@ -1,8 +1,9 @@
 from blender_wrapper.api import Scene
 from blender_wrapper.api import Camera
 from blender_wrapper.api import SunLamp
-from blender_wrapper.api import Plane, Cone
-from blender_wrapper.api import ORIGIN
+from blender_wrapper.api import Cone, Cube, Cylinder, Monkey, Plane
+
+from blender_wrapper.api import ORIGIN, SUBSURF
 
 
 def main():
@@ -15,13 +16,18 @@ def main():
     lamp = SunLamp(10, (0, 0, 3), ORIGIN)
     lamp.add_to_scene()
 
-    floor = Plane(ORIGIN, ORIGIN)
+    floor = Plane(ORIGIN, ORIGIN, radius=5.0)
     floor.add_to_scene()
 
-    cone = Cone(ORIGIN, ORIGIN, depth=2.5)
-    cone.add_to_scene()
+    cube = Cube((2.5, 2.5, 0), (0, 0, 45))
+    cube.add_to_scene()
 
-    scene.render(resolution_percentage=100)
+    monkey = Monkey((0, 0, 1.25), (10, 0, 45), radius=1.25)
+    monkey.add_to_scene()
+    monkey.add_modifier(SUBSURF)
+    monkey.shade_smooth()
+
+    scene.render(samples=75, resolution_percentage=5)
 
 
 # Execute running:
