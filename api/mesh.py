@@ -89,6 +89,14 @@ class Cone(Mesh):
                                         rotation=self.rotation,
                                         view_align=self.view_align,
                                         layers=self.layers)
+class Cube(Mesh):
+    def add_to_scene(self):
+        bpy.ops.mesh.primitive_cube_add(location=self.location,
+                                        rotation=self.rotation,
+                                        view_align=self.view_align,
+                                        layers=self.layers,
+                                        radius=self.radius)
+
 
 class Plane(Mesh):
     def add_to_scene(self):
