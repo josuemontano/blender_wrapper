@@ -4,7 +4,7 @@ from .variables import ORIGIN, LAYER_1
 
 
 class Camera:
-    """Camera object"""
+    """Camera"""
     def __init__(self, location=ORIGIN, rotation=ORIGIN, view_align=False, layers=LAYER_1):
         self.location = location
         self.rotation = rotation

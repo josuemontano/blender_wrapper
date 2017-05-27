@@ -5,10 +5,15 @@ from .variables import ORIGIN, LAYER_1
 
 
 class Lamp(metaclass=ABCMeta):
-    """Base lamp object"""
+    """Base lamp"""
     def __init__(self, type_, radius, location, rotation, view_align, layers, cast_shadow):
         """
-        :param type_:
+        :param type_: Type of lamp, must be one of the following:
+                      - POINT Point, Omnidirectional point light source.
+                      - SUN Sun, Constant direction parallel ray light source.
+                      - SPOT Spot, Directional cone light source.
+                      - HEMI Hemi, 180 degree constant light source.
+                      - AREA Area, Directional area light source.
         :param radius: Radius
         :param location: Location for the newly added object
         :param rotation: Rotation for the newly added object
@@ -36,12 +41,12 @@ class Lamp(metaclass=ABCMeta):
 
 
 class PointLamp(Lamp):
-    """Point lamp object"""
+    """Point lamp"""
     def __init__(self, radius, location=ORIGIN, rotation=ORIGIN, view_align=False, layers=LAYER_1, cast_shadow=True):
         super(PointLamp, self).__init__('POINT', radius, location, rotation, view_align, layers, cast_shadow)
 
 
 class SunLamp(Lamp):
-    """Point lamp object"""
+    """Point lamp"""
     def __init__(self, radius, location=ORIGIN, rotation=ORIGIN, view_align=False, layers=LAYER_1, cast_shadow=True):
         super(SunLamp, self).__init__('SUN', radius, location, rotation, view_align, layers, cast_shadow)

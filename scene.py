@@ -2,7 +2,7 @@ import bpy
 
 
 class Scene:
-    """Scene object"""
+    """Scene"""
     def __init__(self, resolution_x, resolution_y, filepath, render_engine='CYCLES'):
         self.resolution_x = resolution_x
         self.resolution_y = resolution_y
