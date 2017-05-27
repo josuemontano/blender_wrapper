@@ -20,6 +20,10 @@ class BlenderObject:
         """
         bpy.ops.object.location_clear(clear_delta=clear_delta)
 
+    def clear_origin(self):
+        """Clear the object’s origin"""
+        bpy.ops.object.origin_clear()
+
     def clear_rotation(self, clear_delta=False):
         """
         Clear the object’s rotation
