@@ -40,6 +40,10 @@ class BlenderObject:
         """
         bpy.ops.object.scale_clear(clear_delta=clear_delta)
 
+    def toggle_edit_mode(self):
+        """Toggle object’s editmode"""
+        bpy.ops.object.editmode_toggle()
+
     def set_mode(self, mode, toggle=False):
         """Sets the object interaction mode
 
