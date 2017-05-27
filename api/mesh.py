@@ -10,7 +10,15 @@ class Mesh(BlenderObject):
         super(Mesh, self).__init__(location, rotation, view_align, layers)
         self.radius = radius
 
-    def add_modifier(self, type):
+    def shade_flat(self):
+        """Render and display faces uniform, using Face Normals"""
+        bpy.ops.object.shade_flat()
+
+    def shade_smooth(self):
+        """Render and display faces smooth, using interpolated Vertex Normals"""
+        bpy.ops.object.shade_smooth()
+
+    def add_modifier(self, type_):
         """Add a modifier to the active object
 
         :param type: Type of the modifier, must be one of the following:
@@ -66,7 +74,7 @@ class Mesh(BlenderObject):
                      - SOFT_BODY Soft Body.
                      - SURFACE Surface.
         """
-        bpy.ops.object.modifier_add(type)
+        bpy.ops.object.modifier_add(type=type_)
 
 
 class Cone(Mesh):
