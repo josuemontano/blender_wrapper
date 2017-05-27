@@ -28,6 +28,7 @@ def main():
     monkey.shade_smooth()
 
     scene.render(samples=75, resolution_percentage=5)
+    scene.export_to_blend_file('./scene.blend')
 
 
 # Execute running:

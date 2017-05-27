@@ -25,6 +25,9 @@ class Scene:
         bpy.context.scene.cycles.samples = samples
         bpy.ops.render.render(animation=True)
 
+    def export_to_blend_file(self, destination):
+        bpy.ops.wm.save_as_mainfile(filepath=destination)
+
     def _cleanup(self):
         """Delete everything"""
         bpy.ops.object.delete(use_global=False)
