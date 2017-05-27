@@ -1,11 +1,12 @@
 from blender_wrapper.api import Scene
 from blender_wrapper.api import Camera
 from blender_wrapper.api import SunLamp
+from blender_wrapper.api import Plane, Cone
 from blender_wrapper.api import ORIGIN
 
 
 def main():
-    scene = Scene(1500, 1000, filepath="~/Desktop/")
+    scene = Scene(1500, 1000, filepath="./")
     scene.setup()
 
     camera = Camera((1, 0, 1), (90, 0, 0), view_align=True)
@@ -13,6 +14,12 @@ def main():
 
     lamp = SunLamp(10, (0, 0, 3), ORIGIN)
     lamp.add_to_scene()
+
+    floor = Plane(ORIGIN, ORIGIN)
+    floor.add_to_scene()
+
+    cone = Cone(ORIGIN, ORIGIN, depth=2.5)
+    cone.add_to_scene()
 
     scene.render(resolution_percentage=100)
 
