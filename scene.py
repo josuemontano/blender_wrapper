@@ -20,7 +20,8 @@ class Scene:
         bpy.context.scene.render.resolution_x = self.resolution_x
         bpy.context.scene.render.resolution_y = self.resolution_y
 
-    def render(self, samples=50):
+    def render(self, samples=50, resolution_percentage=50):
+        bpy.context.scene.render.resolution_percentage = resolution_percentage
         bpy.context.scene.cycles.samples = samples
         bpy.ops.render.render(animation=True)
 
