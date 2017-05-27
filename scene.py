@@ -15,7 +15,8 @@ class Scene:
         bpy.context.scene.frame_start = 1
         bpy.context.scene.frame_end = 1
 
-    def render(self):
+    def render(self, samples=50):
+        bpy.context.scene.cycles.samples = samples
         bpy.ops.render.render(animation=True)
 
     def _cleanup(self):
