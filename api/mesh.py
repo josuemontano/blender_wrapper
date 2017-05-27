@@ -117,6 +117,15 @@ class Cylinder(Mesh):
                                             layers=self.layers)
 
 
+class Monkey(Mesh):
+    def add_to_scene(self):
+        bpy.ops.mesh.primitive_monkey_add(radius=self.radius,
+                                         location=self.location,
+                                         rotation=self.rotation,
+                                         view_align=self.view_align,
+                                         layers=self.layers)
+
+
 class Plane(Mesh):
     def add_to_scene(self):
         bpy.ops.mesh.primitive_plane_add(radius=self.radius,
