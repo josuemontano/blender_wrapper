@@ -6,7 +6,7 @@ from .variables import LAYER_1, NOTHING
 
 class Mesh(BlenderObject):
     """Base mesh"""
-    def __init__(self, location, rotation, view_align=False, layers=LAYER_1, radius=1.0):
+    def __init__(self, location, rotation, radius=1.0, view_align=False, layers=LAYER_1):
         super(Mesh, self).__init__(location, rotation, view_align, layers)
         self.radius = radius
 
@@ -71,7 +71,7 @@ class Mesh(BlenderObject):
 
 class Cone(Mesh):
     def __init__(self, location, rotation, vertices=32, radius1=1.0, radius2=0.0, depth=2.0, end_fill_type=NOTHING, view_align=False, layers=LAYER_1):
-        super(Cone, self).__init__(location, rotation, view_align, layers, 0.0)
+        super(Cone, self).__init__(location, rotation, None, view_align, layers)
 
         self.vertices = vertices
         self.radius1 = radius1
@@ -99,8 +99,8 @@ class Cube(Mesh):
 
 
 class Cylinder(Mesh):
-    def __init__(self, location, rotation, vertices=32, radius=1.0, depth=2.0, end_fill_type=NOTHING, view_align=False, layers=LAYER_1):
-        super(Cylinder, self).__init__(location, rotation, view_align, layers, radius)
+    def __init__(self, location, rotation, radius=1.0, vertices=32, depth=2.0, end_fill_type=NOTHING, view_align=False, layers=LAYER_1):
+        super(Cylinder, self).__init__(location, rotation, radius, view_align, layers)
 
         self.vertices = vertices
         self.depth = depth
