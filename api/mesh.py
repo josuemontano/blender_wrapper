@@ -96,7 +96,7 @@ class Circle(Mesh):
 
 
 class Cone(Mesh):
-    def __init__(self, location, rotation, vertices=32, radius1=1.0, radius2=0.0, depth=2.0, end_fill_type=NOTHING, view_align=False, layers=LAYER_1):
+    def __init__(self, location, rotation, radius1=1.0, radius2=0.0, vertices=32, depth=2.0, end_fill_type=NOTHING, view_align=False, layers=LAYER_1):
         super(Cone, self).__init__(location, rotation, None, view_align, layers)
 
         self.vertices = vertices
@@ -107,9 +107,9 @@ class Cone(Mesh):
 
     def add_to_current_scene(self):
         """Construct a conic mesh"""
-        bpy.ops.mesh.primitive_cone_add(vertices=self.vertices,
-                                        radius1=self.radius1,
+        bpy.ops.mesh.primitive_cone_add(radius1=self.radius1,
                                         radius2=self.radius2,
+                                        vertices=self.vertices,
                                         depth=self.depth,
                                         end_fill_type=self.end_fill_type,
                                         location=self.location,
