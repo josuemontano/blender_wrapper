@@ -77,6 +77,24 @@ class Mesh(BlenderObject):
         bpy.ops.object.modifier_add(type=type_)
 
 
+class Circle(Mesh):
+    def __init__(self, location, rotation, radius=1.0, vertices=32, end_fill_type=NOTHING, view_align=False, layers=LAYER_1):
+        super(Cone, self).__init__(location, rotation, radius, view_align, layers)
+
+        self.vertices = vertices
+        self.end_fill_type = end_fill_type
+
+    def add_to_current_scene(self):
+        """Construct a circle mesh"""
+        bpy.ops.mesh.primitive_circle_add(radius=self.radius,
+                                          vertices=self.vertices,
+                                          end_fill_type=self.end_fill_type,
+                                          location=self.location,
+                                          rotation=self.rotation,
+                                          view_align=self.view_align,
+                                          layers=self.layers)
+
+
 class Cone(Mesh):
     def __init__(self, location, rotation, vertices=32, radius1=1.0, radius2=0.0, depth=2.0, end_fill_type=NOTHING, view_align=False, layers=LAYER_1):
         super(Cone, self).__init__(location, rotation, None, view_align, layers)
