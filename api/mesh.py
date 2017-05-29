@@ -1,7 +1,7 @@
 import bpy
 
 from .base import BlenderObject
-from .variables import LAYER_1, NOTHING
+from .constants import LAYER_1, NOTHING
 
 
 class Mesh(BlenderObject):

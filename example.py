@@ -3,7 +3,7 @@ from blender_wrapper.api import Camera
 from blender_wrapper.api import SunLamp
 from blender_wrapper.api import Cone, Cube, Cylinder, Monkey, Plane
 
-from blender_wrapper.api.variables import ORIGIN, SUBSURFz
+from blender_wrapper.api.constants import ORIGIN, SUBSURFz
 
 
 def main():

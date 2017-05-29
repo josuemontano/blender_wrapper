@@ -1,4 +1,4 @@
-from .variables import LAYER_1
+from .constants import LAYER_1
 
 
 class BlenderObject:

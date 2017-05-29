@@ -1,7 +1,7 @@
 import bpy
 
 from .base import BlenderObject
-from .variables import LAYER_1, POINT, SUN
+from .constants import LAYER_1, POINT, SUN
 
 
 class Lamp(BlenderObject):
@@ -35,7 +35,6 @@ class Lamp(BlenderObject):
                                 view_align=self.view_align,
                                 layers=self.layers)
         bpy.context.object.data.cycles.cast_shadow = self.cast_shadow
-
 
 
 class PointLamp(Lamp):
