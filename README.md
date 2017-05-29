@@ -15,7 +15,7 @@ ln -s $PWD/blender_wrapper /Applications/blender.app/Contents/Resources/2.78/pyt
 from blender_wrapper.api import Scene
 from blender_wrapper.api import Camera
 from blender_wrapper.api import SunLamp
-from blender_wrapper.api import ORIGIN, SUBSURF
+from blender_wrapper.api.constants import ORIGIN, SUBSURF
 
 
 def main():
