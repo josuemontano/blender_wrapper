@@ -85,7 +85,7 @@ class Circle(Mesh):
         self.end_fill_type = end_fill_type
 
     def add_to_current_scene(self):
-        """Construct a circle mesh"""
+        """Add a circle mesh to the current scene"""
         bpy.ops.mesh.primitive_circle_add(radius=self.radius,
                                           vertices=self.vertices,
                                           end_fill_type=self.end_fill_type,
@@ -106,7 +106,7 @@ class Cone(Mesh):
         self.end_fill_type = end_fill_type
 
     def add_to_current_scene(self):
-        """Construct a conic mesh"""
+        """Add a conic mesh to the current scene"""
         bpy.ops.mesh.primitive_cone_add(radius1=self.radius1,
                                         radius2=self.radius2,
                                         vertices=self.vertices,
@@ -118,7 +118,7 @@ class Cone(Mesh):
                                         layers=self.layers)
 class Cube(Mesh):
     def add_to_current_scene(self):
-        """Construct a cube mesh"""
+        """Add a cube mesh to the current scene"""
         bpy.ops.mesh.primitive_cube_add(radius=self.radius,
                                         location=self.location,
                                         rotation=self.rotation,
@@ -135,7 +135,7 @@ class Cylinder(Mesh):
         self.end_fill_type = end_fill_type
 
     def add_to_current_scene(self):
-        """Construct a cylinder mesh"""
+        """Add a cylinder mesh to the current scene"""
         bpy.ops.mesh.primitive_cylinder_add(radius=self.radius,
                                             vertices=self.vertices,
                                             depth=self.depth,
@@ -146,9 +146,26 @@ class Cylinder(Mesh):
                                             layers=self.layers)
 
 
+class Icosphere(Mesh):
+    def __init__(self, location, rotation, subdivisions=2, size=1.0, view_align=False, layers=LAYER_1):
+        super(Cylinder, self).__init__(location, rotation, radius, view_align, layers)
+
+        self.subdivisions = subdivisions
+        self.size = size
+
+    def add_to_current_scene(self):
+        """Add an Icosphere mesh to the current scene"""
+        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=self.subdivisions,
+                                              size=self.size,
+                                              location=self.location,
+                                              rotation=self.rotation,
+                                              view_align=self.view_align,
+                                              layers=self.layers)
+
+
 class Monkey(Mesh):
     def add_to_current_scene(self):
-        """Construct a Suzanne mesh"""
+        """Add a Suzanne mesh to the current scene"""
         bpy.ops.mesh.primitive_monkey_add(radius=self.radius,
                                          location=self.location,
                                          rotation=self.rotation,
@@ -158,7 +175,7 @@ class Monkey(Mesh):
 
 class Plane(Mesh):
     def add_to_current_scene(self):
-        """Construct a filled planar mesh with 4 vertices"""
+        """Add a filled planar mesh with 4 vertices to the current scene"""
         bpy.ops.mesh.primitive_plane_add(radius=self.radius,
                                          location=self.location,
                                          rotation=self.rotation,
