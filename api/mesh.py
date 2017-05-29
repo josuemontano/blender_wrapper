@@ -87,7 +87,7 @@ class Cone(Mesh):
         self.depth = depth
         self.end_fill_type = end_fill_type
 
-    def add_to_scene(self):
+    def add_to_current_scene(self):
         bpy.ops.mesh.primitive_cone_add(vertices=self.vertices,
                                         radius1=self.radius1,
                                         radius2=self.radius2,
@@ -98,7 +98,7 @@ class Cone(Mesh):
                                         view_align=self.view_align,
                                         layers=self.layers)
 class Cube(Mesh):
-    def add_to_scene(self):
+    def add_to_current_scene(self):
         bpy.ops.mesh.primitive_cube_add(radius=self.radius,
                                         location=self.location,
                                         rotation=self.rotation,
@@ -114,7 +114,7 @@ class Cylinder(Mesh):
         self.depth = depth
         self.end_fill_type = end_fill_type
 
-    def add_to_scene(self):
+    def add_to_current_scene(self):
         bpy.ops.mesh.primitive_cylinder_add(radius=self.radius,
                                             vertices=self.vertices,
                                             depth=self.depth,
@@ -126,7 +126,7 @@ class Cylinder(Mesh):
 
 
 class Monkey(Mesh):
-    def add_to_scene(self):
+    def add_to_current_scene(self):
         bpy.ops.mesh.primitive_monkey_add(radius=self.radius,
                                          location=self.location,
                                          rotation=self.rotation,
@@ -135,7 +135,7 @@ class Monkey(Mesh):
 
 
 class Plane(Mesh):
-    def add_to_scene(self):
+    def add_to_current_scene(self):
         bpy.ops.mesh.primitive_plane_add(radius=self.radius,
                                          location=self.location,
                                          rotation=self.rotation,

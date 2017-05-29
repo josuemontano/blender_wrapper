@@ -27,7 +27,7 @@ class Lamp(BlenderObject):
         self.radius = radius
         self.cast_shadow = cast_shadow
 
-    def add_to_scene(self):
+    def add_to_current_scene(self):
         bpy.ops.object.lamp_add(type=self.type_,
                                 radius=self.radius,
                                 location=self.location,

@@ -5,7 +5,7 @@ from .base import BlenderObject
 
 class Camera(BlenderObject):
     """Camera"""
-    def add_to_scene(self):
+    def add_to_current_scene(self):
         bpy.ops.object.camera_add(location=self.location,
                                   rotation=self.rotation,
                                   view_align=self.view_align,

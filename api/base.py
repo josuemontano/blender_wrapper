@@ -9,7 +9,7 @@ class BlenderObject:
         self.view_align = view_align
         self.layers = layers
 
-    def add_to_scene(self):
+    def add_to_current_scene(self):
         pass
 
     def clear_location(self, clear_delta=False):

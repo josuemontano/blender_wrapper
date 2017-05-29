@@ -23,13 +23,13 @@ def main():
     scene.setup()
 
     camera = Camera((1, 0, 1), (90, 0, 0), view_align=True)
-    camera.add_to_scene()
+    camera.add_to_current_scene()
 
     lamp = SunLamp(10, (0, 0, 3), ORIGIN)
-    lamp.add_to_scene()
+    lamp.add_to_current_scene()
 
     monkey = Monkey(ORIGIN, (5, 0, 45), radius=1.25)
-    monkey.add_to_scene()
+    monkey.add_to_current_scene()
     monkey.add_modifier(SUBSURF)
     monkey.shade_smooth()
 

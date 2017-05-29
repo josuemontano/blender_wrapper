@@ -11,19 +11,19 @@ def main():
     scene.setup()
 
     camera = Camera((1, 0, 1), (90, 0, 0), view_align=True)
-    camera.add_to_scene()
+    camera.add_to_current_scene()
 
     lamp = SunLamp(10, (0, 0, 3), ORIGIN)
-    lamp.add_to_scene()
+    lamp.add_to_current_scene()
 
     floor = Plane(ORIGIN, ORIGIN, radius=5.0)
-    floor.add_to_scene()
+    floor.add_to_current_scene()
 
     cube = Cube((2.5, 2.5, 0), (0, 0, 45))
-    cube.add_to_scene()
+    cube.add_to_current_scene()
 
     monkey = Monkey((0, 0, 1.25), (10, 0, 45), radius=1.25)
-    monkey.add_to_scene()
+    monkey.add_to_current_scene()
     monkey.add_modifier(SUBSURF)
     monkey.shade_smooth()
 
